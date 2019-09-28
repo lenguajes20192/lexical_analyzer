@@ -1,5 +1,4 @@
 global sizes 
-
    # matrix dimension, default 10
    var N := 10 
    # number of processes, default 2
