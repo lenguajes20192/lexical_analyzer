@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+
 
 public class Main {
 
@@ -13,9 +15,7 @@ public class Main {
             while (line != null) {
                 //System.out.println(line);
                 String[] arrOfStr = line.split("");
-                //for (String a : arrOfStr)
-                    //System.out.println(a);
-                // read next line
+                System.out.println(Arrays.toString(arrOfStr));
                 line = reader.readLine();
             }
             reader.close();
