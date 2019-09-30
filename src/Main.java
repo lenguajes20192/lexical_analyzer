@@ -116,9 +116,14 @@ public class Main {
             reader = new BufferedReader(new FileReader(
                     "test.txt"));
             String line = reader.readLine();
+            int row = 0;
             while (line != null) {
-                String[] arrOfStr = line.split("");
-                //System.out.println(Arrays.toString(arrOfStr));
+                row++;
+                if(!line.contains("#")) {
+                    String[] arrOfStr = line.split("");
+                    System.out.println(Arrays.toString(arrOfStr));
+                    System.out.println(row);
+                }
                 line = reader.readLine();
             }
             reader.close();
