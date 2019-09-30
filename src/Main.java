@@ -117,10 +117,20 @@ public class Main {
             reader = new BufferedReader(new FileReader(
                     "test2.txt"));
             String line = reader.readLine();
+            int row = 0;
             while (line != null) {
+<<<<<<< HEAD
                 String[] arrOfStr = line.split("");
                 //processArray(arrOfStr)
                 //System.out.println(Arrays.toString(arrOfStr));
+=======
+                row++;
+                if(!line.contains("#")) {
+                    String[] arrOfStr = line.split("");
+                    System.out.println(Arrays.toString(arrOfStr));
+                    System.out.println(row);
+                }
+>>>>>>> 6ff09dd897457da4c9ad601623d3208ed143c524
                 line = reader.readLine();
             }
             reader.close();
