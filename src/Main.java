@@ -11,10 +11,11 @@ public class Main {
                                       "real", "ref", "res", "resource", "newState =s", "scanf", "sem", "sprintf", "stop",
                                       "to", "val", "var", "write", "writes"};
 
-    int delta(int state, char c){
-        
-        int newState = -1;
-        switch (state) {
+    static int delta(int newState, char c){
+
+        //int newState = -1;
+
+        switch (newState) {
             case -1:
                 if (c == '+') newState = 1;
                 else if (c >= '0' && c <= '9') newState = 4;
@@ -32,6 +33,7 @@ public class Main {
                 else if (c == '{') newState = 29;
                 else if (c == '}') newState = 30;
                 else newState = -1;
+                System.out.println("hello" + newState);
                 break;
 
             case 1:
@@ -47,8 +49,7 @@ public class Main {
 
             case 5:
                 if (c >= '0' && c <= '9') newState = 4;
-                else if (c == '>') newState = 10;
-                else newState = -1;
+                else newState = 10;
                 break;
 
             case 7:
@@ -63,7 +64,7 @@ public class Main {
 
             case 15:
                 if(c == '=') newState = 16;
-                else newState = -1;
+                else newState = 17;
                 break;
 
             case 19:
@@ -114,10 +115,11 @@ public class Main {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(
-                    "test.txt"));
+                    "test2.txt"));
             String line = reader.readLine();
             while (line != null) {
                 String[] arrOfStr = line.split("");
+                //processArray(arrOfStr)
                 //System.out.println(Arrays.toString(arrOfStr));
                 line = reader.readLine();
             }
