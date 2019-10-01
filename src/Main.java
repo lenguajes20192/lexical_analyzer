@@ -8,7 +8,7 @@ public class Main {
 
     static String[] resWords = new String[]{ "af", "body", "cap", "destroy", "end", "external", "fa", "fi", "get", "getarg",
                                       "global", "if", "import", "int", "mod", "new", "op", "procedure", "process", "read",
-                                      "real", "ref", "res", "resource", "newState =s", "scanf", "sem", "sprintf", "stop",
+                                      "real", "ref", "res", "resource", "scanf", "sem", "sprintf", "stop",
                                       "to", "val", "var", "write", "writes"};
 
     static int delta(int newState, char c){
@@ -32,8 +32,9 @@ public class Main {
                 else if (c == '>') newState = 26;
                 else if (c == '{') newState = 29;
                 else if (c == '}') newState = 30;
+                else if (c == '&') newState = 33;
                 else newState = -1;
-                System.out.println("hello" + newState);
+               //System.out.println("hello" + newState);
                 break;
 
             case 1:
@@ -67,6 +68,10 @@ public class Main {
                 else newState = 17;
                 break;
 
+            case 16:
+                if(c == ':') newState = 31;
+                else newState = 32;
+
             case 19:
                 if(c == ']') newState = 20;
                 else newState = 21;
@@ -91,7 +96,6 @@ public class Main {
             case 12: // tkpuntocoma
             case 13: //tk par derecho
             case 14: // tk par izquierdo
-            case 16: // tk asigna
             case 17: // tk dos puntos
             case 18: // tk igual
             case 20: // tk separa
@@ -103,6 +107,9 @@ public class Main {
             case 28: // tk mayor
             case 29: // tk llave izq
             case 30: // tk llave der
+            case 31: //tk swap
+            case 32: //tk asigna
+            case 33: //tk and
                 newState = -1;
                 break;
 
@@ -119,18 +126,12 @@ public class Main {
             String line = reader.readLine();
             int row = 0;
             while (line != null) {
-<<<<<<< HEAD
-                String[] arrOfStr = line.split("");
-                //processArray(arrOfStr)
-                //System.out.println(Arrays.toString(arrOfStr));
-=======
                 row++;
                 if(!line.contains("#")) {
                     String[] arrOfStr = line.split("");
-                    System.out.println(Arrays.toString(arrOfStr));
-                    System.out.println(row);
+                    //System.out.println(Arrays.toString(arrOfStr));
+                    //System.out.println(row);
                 }
->>>>>>> 6ff09dd897457da4c9ad601623d3208ed143c524
                 line = reader.readLine();
             }
             reader.close();
